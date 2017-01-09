@@ -393,6 +393,10 @@ class Registration(models.Model):
     def address_street(self):
         return self.address
 
+    class Meta:
+        verbose_name = _('Registration')
+        verbose_name_plural = _('Registrations')
+
 
 class BaseEventPlugin(CMSPlugin):
     app_config = models.ForeignKey(EventsConfig, verbose_name=_('app_config'))
