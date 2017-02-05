@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Frigory33 <chironsylvain@orange.fr>, 2016
 # Marc Antoine THEVENET <mat@idimweb.com>, 2016
@@ -9,14 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aldryn Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-23 14:56-0400\n"
+"POT-Creation-Date: 2017-02-04 17:35+0100\n"
 "PO-Revision-Date: 2016-07-07 23:12+0000\n"
 "Last-Translator: Frigory33 <chironsylvain@orange.fr>\n"
-"Language-Team: French (http://www.transifex.com/divio/aldryn-events/language/fr/)\n"
+"Language-Team: French (http://www.transifex.com/divio/aldryn-events/language/"
+"fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: admin.py:57
@@ -31,7 +32,10 @@ msgid ""
 "There is a new registration for \"%(event_name)s\" (%(event_url)s).\n"
 "\n"
 "Details: %(registration_admin_url)s\n"
-msgstr "Il y a une nouvelle inscription à « %(event_name)s » (%(event_url)s).\n\nDétails : %(registration_admin_url)s\n"
+msgstr ""
+"Il y a une nouvelle inscription à « %(event_name)s » (%(event_url)s).\n"
+"\n"
+"Détails : %(registration_admin_url)s\n"
 
 #: boilerplates/bootstrap3/templates/aldryn_events/emails/manager_confirmation.subject.txt:1
 #: templates/aldryn_events/emails/manager_confirmation.subject.txt:1
@@ -47,7 +51,10 @@ msgid ""
 "Hi %(first_name)s\n"
 "\n"
 "You have registered for \"%(event_name)s\" (%(event_url)s).\n"
-msgstr "Bonjour %(first_name)s\n\nVous vous êtes inscrit à « %(event_name)s » (%(event_url)s).\n"
+msgstr ""
+"Bonjour %(first_name)s\n"
+"\n"
+"Vous vous êtes inscrit à « %(event_name)s » (%(event_url)s).\n"
 
 #: boilerplates/bootstrap3/templates/aldryn_events/emails/registrant_confirmation.subject.txt:1
 #: boilerplates/legacy/templates/aldryn_events/emails/registrant_confirmation.subject.txt:1
@@ -98,7 +105,8 @@ msgstr "Aucun élément disponible"
 #: boilerplates/bootstrap3/templates/aldryn_events/includes/calendar.html:14
 #: templates/aldryn_events/includes/calendar.html:12
 msgid "There was a problem accessing the calendar, please try again."
-msgstr "Une erreur s'est produite lors de l'accès au calendrier ; veuillez réessayer."
+msgstr ""
+"Une erreur s'est produite lors de l'accès au calendrier ; veuillez réessayer."
 
 #: boilerplates/bootstrap3/templates/aldryn_events/includes/calendar.html:18
 #: boilerplates/legacy/templates/aldryn_events/includes/calendar.html:41
@@ -188,7 +196,9 @@ msgstr "Suivant"
 #: templates/aldryn_events/includes/registration.html:5
 msgid ""
 "The registration deadline for this event has passed, registration is closed."
-msgstr "La date limite d'inscription pour cet événement est passée, les inscriptions sont closes."
+msgstr ""
+"La date limite d'inscription pour cet événement est passée, les inscriptions "
+"sont closes."
 
 #: boilerplates/bootstrap3/templates/aldryn_events/includes/registration.html:13
 #: boilerplates/legacy/templates/aldryn_events/includes/event_registration.html:9
@@ -231,7 +241,7 @@ msgid "Ongoing events"
 msgstr "Événements en cours"
 
 #: boilerplates/legacy/templates/aldryn_events/events_list.html:9
-#: cms_apps.py:13 cms_plugins.py:109 cms_plugins.py:140 cms_plugins.py:169
+#: cms_apps.py:13 cms_plugins.py:109 cms_plugins.py:141 cms_plugins.py:170
 #: cms_toolbars.py:71 menu.py:20 models.py:183
 msgid "Events"
 msgstr "Événements"
@@ -243,6 +253,7 @@ msgid "No events found."
 msgstr "Aucun événement trouvé."
 
 #: boilerplates/legacy/templates/aldryn_events/includes/event_registration.html:4
+#: models.py:397
 msgid "Registration"
 msgstr "Inscription"
 
@@ -276,17 +287,23 @@ msgid ""
 "available. Please switch to edit mode and change plugin app_config settings "
 "to use valid config. Also note that aldryn-events should be used at least "
 "once as an apphook for that config."
-msgstr "Il y a une erreur dans la configuration du greffon : la configuration des événements sélectionnés n'est pas disponible. Veuillez passer en mode édition et changer les réglages de la section app_config du greffon pour utiliser une configuration valide. Notez aussi que les événements Aldryn devraient être utilisés au moins une fois comme accroche d'application pour cette configuration."
+msgstr ""
+"Il y a une erreur dans la configuration du greffon : la configuration des "
+"événements sélectionnés n'est pas disponible. Veuillez passer en mode "
+"édition et changer les réglages de la section app_config du greffon pour "
+"utiliser une configuration valide. Notez aussi que les événements Aldryn "
+"devraient être utilisés au moins une fois comme accroche d'application pour "
+"cette configuration."
 
 #: cms_plugins.py:108
 msgid "Upcoming or Past Events"
 msgstr "Événements à venir ou passés"
 
-#: cms_plugins.py:141
+#: cms_plugins.py:142
 msgid "List"
 msgstr "Liste"
 
-#: cms_plugins.py:168
+#: cms_plugins.py:169
 msgid "Calendar"
 msgstr "Calendrier"
 
@@ -334,41 +351,51 @@ msgstr "Créer un nouvel événement."
 msgid "default"
 msgstr "par défaut"
 
-#: forms.py:33
+#: forms.py:35
 msgid "Date:"
 msgstr "Date :"
 
-#: forms.py:34
+#: forms.py:36
 msgid "Time:"
 msgstr "Heure :"
 
-#: forms.py:53
+#: forms.py:55
 #, python-format
 msgid "Acceptable Formats: %(format_list)s"
 msgstr "Formats acceptés : %(format_list)s"
 
-#: forms.py:87
+#: forms.py:89
 msgid "the registration deadline for this event has already passed"
 msgstr "la date limite d'inscription pour cet événement est déjà passée"
 
-#: forms.py:164
+#: forms.py:166
 msgid ""
-"Following app_configs is app hooked but pages are not published, to use them"
-" - publish pages to which they are attached."
-msgstr "Les app_configs suivantes sont accrochées mais les pages ne sont pas publiées ; pour les utiliser, publiez les pages auxquelles elles sont attachées."
+"Following app_configs is app hooked but pages are not published, to use them "
+"- publish pages to which they are attached."
+msgstr ""
+"Les app_configs suivantes sont accrochées mais les pages ne sont pas "
+"publiées ; pour les utiliser, publiez les pages auxquelles elles sont "
+"attachées."
 
-#: forms.py:193
+#: forms.py:195
 msgid ""
 "Seems that selected Event config is not plugged to any page, or maybe that "
 "page is not published.Please select Event config that is being used."
-msgstr "Il semble que la configuration de l'événement sélectionné n'est associée à aucune page, ou peut-être que la page n'est pas publiée. Veuillez sélectionner une configuration d'événement qui est utilisée."
+msgstr ""
+"Il semble que la configuration de l'événement sélectionné n'est associée à "
+"aucune page, ou peut-être que la page n'est pas publiée. Veuillez "
+"sélectionner une configuration d'événement qui est utilisée."
 
-#: forms.py:243
+#: forms.py:245
 msgid ""
 "When flagged will add an ongoing_objects to the context and exclude these "
 "objects from the normal list. If you are using the default template it's "
 "rendered as 'Current events'. Note: ongoing objects are not paginated."
-msgstr "Au signalement, ajoutera un drapeau ongoing_object au contexte et exclura ces objets de la liste normale. Si vous utilisez le modèle par défaut, il est rendu comme les « Événements actuels ». Remarque : les objets en cours ne sont pas paginés."
+msgstr ""
+"Au signalement, ajoutera un drapeau ongoing_object au contexte et exclura "
+"ces objets de la liste normale. Si vous utilisez le modèle par défaut, il "
+"est rendu comme les « Événements actuels ». Remarque : les objets en cours "
+"ne sont pas paginés."
 
 #: models.py:118
 msgid "start date"
@@ -466,7 +493,7 @@ msgstr "longitude de l'emplacement"
 msgid "image"
 msgstr "image"
 
-#: models.py:177 models.py:398
+#: models.py:177 models.py:402
 msgid "app_config"
 msgstr "app_config"
 
@@ -480,19 +507,25 @@ msgstr "La date de début doit être antérieure à la date de fin."
 
 #: models.py:221
 msgid ""
-"When specifying identical start and end dates, please also provide the start"
-" and end time."
-msgstr "Si vous spécifiez des dates de début de fin identiques, veuillez également indiquer les heure de début et de fin."
+"When specifying identical start and end dates, please also provide the start "
+"and end time."
+msgstr ""
+"Si vous spécifiez des dates de début de fin identiques, veuillez également "
+"indiquer les heure de début et de fin."
 
 #: models.py:228
 msgid "For same start and end dates start time should be before end time."
-msgstr "Si la date de début et la date de fin sont identiques, l'heure de début doit être antérieure à l'heure de fin."
+msgstr ""
+"Si la date de début et la date de fin sont identiques, l'heure de début doit "
+"être antérieure à l'heure de fin."
 
 #: models.py:233
 msgid ""
-"the registration system can't be active if there is an external registration"
-" link. please remove at least one of the two."
-msgstr "le système d'inscription ne peut pas être actif s'il y a un lien d'inscription externe. veuillez supprimer au moins l'un des deux."
+"the registration system can't be active if there is an external registration "
+"link. please remove at least one of the two."
+msgstr ""
+"le système d'inscription ne peut pas être actif s'il y a un lien "
+"d'inscription externe. veuillez supprimer au moins l'un des deux."
 
 #: models.py:239
 msgid "please select a registration deadline."
@@ -566,39 +599,47 @@ msgstr "Courriel"
 msgid "Message"
 msgstr "Message"
 
-#: models.py:428 models.py:454
+#: models.py:398
+#, fuzzy
+#| msgid "Registration"
+msgid "Registrations"
+msgstr "Inscription"
+
+#: models.py:432 models.py:458
 msgid "Standard"
 msgstr "Standard"
 
-#: models.py:432 models.py:470
+#: models.py:436 models.py:474
 msgid "Style"
 msgstr "Style"
 
-#: models.py:457
+#: models.py:461
 msgid "future events"
 msgstr "événements futurs"
 
-#: models.py:458
+#: models.py:462
 msgid "past events"
 msgstr "événements passés"
 
-#: models.py:465
+#: models.py:469
 msgid "selection"
 msgstr "sélection"
 
-#: models.py:476
+#: models.py:480
 msgid "latest entries"
 msgstr "dernières entrées"
 
-#: models.py:478
+#: models.py:482
 msgid "The number of latest events to be displayed."
 msgstr "Le nombre d'événements récents à afficher."
 
-#: models.py:485 models.py:502
+#: models.py:489 models.py:506
 msgid ""
 "The maximum duration (in seconds) that this plugin's content should be "
 "cached."
-msgstr "La durée maximale (en secondes) durant laquelle les données de ce greffon devraient être mises en cache."
+msgstr ""
+"La durée maximale (en secondes) durant laquelle les données de ce greffon "
+"devraient être mises en cache."
 
 #: templatetags/aldryn_events.py:24
 #, python-brace-format
@@ -606,4 +647,8 @@ msgid ""
 "Seems that EventsConfig for this page is missing. Tried to look for {0}. To "
 "be able to see calendar and events againg - you need to create or select "
 "another EventsConfig for this page."
-msgstr "Il semble que la configuration des événements pour cette page est manquante. Essayez de chercher {0}. Pour pouvoir visualiser à nouveau le calendrier et les événements, vous devez créer ou sélectionner une autre configuration d'événements pour cette page."
+msgstr ""
+"Il semble que la configuration des événements pour cette page est manquante. "
+"Essayez de chercher {0}. Pour pouvoir visualiser à nouveau le calendrier et "
+"les événements, vous devez créer ou sélectionner une autre configuration "
+"d'événements pour cette page."

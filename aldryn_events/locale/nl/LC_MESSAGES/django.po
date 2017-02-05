@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-09 21:18+0100\n"
+"POT-Creation-Date: 2017-02-04 17:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,10 @@ msgid ""
 "There is a new registration for \"%(event_name)s\" (%(event_url)s).\n"
 "\n"
 "Details: %(registration_admin_url)s\n"
-msgstr "Er is een nieuwe inschrijving voor \"%(event_name)s\" (%(event_url)s).\n\nDetails: %(registration_admin_url)s\n"
+msgstr ""
+"Er is een nieuwe inschrijving voor \"%(event_name)s\" (%(event_url)s).\n"
+"\n"
+"Details: %(registration_admin_url)s\n"
 
 #: boilerplates/bootstrap3/templates/aldryn_events/emails/manager_confirmation.subject.txt:1
 #: templates/aldryn_events/emails/manager_confirmation.subject.txt:1
@@ -46,7 +49,10 @@ msgid ""
 "Hi %(first_name)s\n"
 "\n"
 "You have registered for \"%(event_name)s\" (%(event_url)s).\n"
-msgstr "Hallo %(first_name)s\n\nU heeft zih geregistreerd voor \"%(event_name)s\" (%(event_url)s).\n"
+msgstr ""
+"Hallo %(first_name)s\n"
+"\n"
+"U heeft zih geregistreerd voor \"%(event_name)s\" (%(event_url)s).\n"
 
 #: boilerplates/bootstrap3/templates/aldryn_events/emails/registrant_confirmation.subject.txt:1
 #: boilerplates/legacy/templates/aldryn_events/emails/registrant_confirmation.subject.txt:1
@@ -97,7 +103,8 @@ msgstr "Geen items beschikbaar"
 #: boilerplates/bootstrap3/templates/aldryn_events/includes/calendar.html:14
 #: templates/aldryn_events/includes/calendar.html:12
 msgid "There was a problem accessing the calendar, please try again."
-msgstr "Er was een probleem met de toegang tot deze kalender. Probeer opnieuw, a.u.b."
+msgstr ""
+"Er was een probleem met de toegang tot deze kalender. Probeer opnieuw, a.u.b."
 
 #: boilerplates/bootstrap3/templates/aldryn_events/includes/calendar.html:18
 #: boilerplates/legacy/templates/aldryn_events/includes/calendar.html:41
@@ -168,7 +175,7 @@ msgstr "Voeg toe aan kalender"
 #: templates/aldryn_events/includes/event.html:46
 #: templates/aldryn_events/includes/event.html:49
 msgid "at"
-msgstr "op"
+msgstr "om"
 
 #: boilerplates/bootstrap3/templates/aldryn_events/includes/pagination.html:6
 #: boilerplates/legacy/templates/aldryn_events/includes/pagination.html:4
@@ -242,6 +249,7 @@ msgid "No events found."
 msgstr "Geen evenementen gevonden."
 
 #: boilerplates/legacy/templates/aldryn_events/includes/event_registration.html:4
+#: models.py:397
 msgid "Registration"
 msgstr "Inschrijving"
 
@@ -275,7 +283,10 @@ msgid ""
 "available. Please switch to edit mode and change plugin app_config settings "
 "to use valid config. Also note that aldryn-events should be used at least "
 "once as an apphook for that config."
-msgstr "Er is een error in de plugin configuratie: de geselecteerde Evenementen config is niet beschikbaar. Ga naar de \"Berwerken\"-modus en pas de app_config instellingen aan."
+msgstr ""
+"Er is een error in de plugin configuratie: de geselecteerde Evenementen "
+"config is niet beschikbaar. Ga naar de \"Berwerken\"-modus en pas de "
+"app_config instellingen aan."
 
 #: cms_plugins.py:108
 msgid "Upcoming or Past Events"
@@ -311,7 +322,9 @@ msgstr "Verwijder evenement"
 
 #: cms_wizards.py:55
 msgid "Optional. If provided, will be added to the main body of the Event."
-msgstr "Optioneel. Indien aanwezig, zal aan de main body van het evenement worden toegevoegd."
+msgstr ""
+"Optioneel. Indien aanwezig, zal aan de main body van het evenement worden "
+"toegevoegd."
 
 #: cms_wizards.py:78 cms_wizards.py:81
 msgid "Date Acceptable Formats: 2015-11-30, 11/30/2015, 11/30/15"
@@ -354,20 +367,29 @@ msgstr "De inschrijvingstermijn is reeds verstreken"
 msgid ""
 "Following app_configs is app hooked but pages are not published, to use them "
 "- publish pages to which they are attached."
-msgstr "Volgende app_configs zijn app hooked, maar de pagina's zijn nog niet gepubliceerd. Om hen te gebruiken publiceer de respectievelijke pagina's."
+msgstr ""
+"Volgende app_configs zijn app hooked, maar de pagina's zijn nog niet "
+"gepubliceerd. Om hen te gebruiken publiceer de respectievelijke pagina's."
 
 #: forms.py:195
 msgid ""
 "Seems that selected Event config is not plugged to any page, or maybe that "
 "page is not published.Please select Event config that is being used."
-msgstr "Mogelijk is de geselecteerde configuratie niet verbonden aan een pagina of mogelijk is de pagina niet gepubliceerd. Gelieve de gebruikte configuratie te selecteren."
+msgstr ""
+"Mogelijk is de geselecteerde configuratie niet verbonden aan een pagina of "
+"mogelijk is de pagina niet gepubliceerd. Gelieve de gebruikte configuratie "
+"te selecteren."
 
 #: forms.py:245
 msgid ""
 "When flagged will add an ongoing_objects to the context and exclude these "
 "objects from the normal list. If you are using the default template it's "
 "rendered as 'Current events'. Note: ongoing objects are not paginated."
-msgstr "Wanneer geselecteerd zal een ongoing_objects toegevoegd worden aan de context en zullen deze objecten uitgesloten worden van het normale overzicht. Als u de standaard template gebruikt zal dit getoond worden als \"huidige evenementen\". PS: ongoning_objects worden niet gepagineerd."
+msgstr ""
+"Wanneer geselecteerd zal een ongoing_objects toegevoegd worden aan de "
+"context en zullen deze objecten uitgesloten worden van het normale "
+"overzicht. Als u de standaard template gebruikt zal dit getoond worden als "
+"\"huidige evenementen\". PS: ongoning_objects worden niet gepagineerd."
 
 #: models.py:118
 msgid "start date"
@@ -465,7 +487,7 @@ msgstr "locatie lengtegraad (longitude)"
 msgid "image"
 msgstr "afbeelding"
 
-#: models.py:177 models.py:398
+#: models.py:177 models.py:402
 msgid "app_config"
 msgstr "app_config"
 
@@ -481,17 +503,24 @@ msgstr "Start datum moet voor de eind datum beginnen."
 msgid ""
 "When specifying identical start and end dates, please also provide the start "
 "and end time."
-msgstr "Wannner de start en eind datum hetzelfde zijn, gelieve een start en eind tijd te specifiëren."
+msgstr ""
+"Wannner de start en eind datum hetzelfde zijn, gelieve een start en eind "
+"tijd te specifiëren."
 
 #: models.py:228
 msgid "For same start and end dates start time should be before end time."
-msgstr "Voor dezelfde start en eind datum moet de start tijd voor de eind tijd beginnen."
+msgstr ""
+"Voor dezelfde start en eind datum moet de start tijd voor de eind tijd "
+"beginnen."
 
 #: models.py:233
 msgid ""
 "the registration system can't be active if there is an external registration "
 "link. please remove at least one of the two."
-msgstr "Het inschrijvingssysteem kan niet gebruikt worden wainschrijvinnneer er een externe inschrijvingslink wordt gespecifiëerd. Gelieve minstens één van de twee te verwijderen."
+msgstr ""
+"Het inschrijvingssysteem kan niet gebruikt worden wainschrijvinnneer er een "
+"externe inschrijvingslink wordt gespecifiëerd. Gelieve minstens één van de "
+"twee te verwijderen."
 
 #: models.py:239
 msgid "please select a registration deadline."
@@ -565,35 +594,39 @@ msgstr "Email adres"
 msgid "Message"
 msgstr "Bericht"
 
-#: models.py:428 models.py:454
+#: models.py:398
+msgid "Registrations"
+msgstr "Inschrijvingen"
+
+#: models.py:432 models.py:458
 msgid "Standard"
 msgstr "Standaard"
 
-#: models.py:432 models.py:470
+#: models.py:436 models.py:474
 msgid "Style"
 msgstr "Stijl"
 
-#: models.py:457
+#: models.py:461
 msgid "future events"
 msgstr "Toekomstige evenementen"
 
-#: models.py:458
+#: models.py:462
 msgid "past events"
 msgstr "Afgelopen evenementen"
 
-#: models.py:465
+#: models.py:469
 msgid "selection"
 msgstr "Selectie"
 
-#: models.py:476
+#: models.py:480
 msgid "latest entries"
 msgstr "Laatste entries"
 
-#: models.py:478
+#: models.py:482
 msgid "The number of latest events to be displayed."
 msgstr "Het aantal laatste evenementen die getoond moeten worden"
 
-#: models.py:485 models.py:502
+#: models.py:489 models.py:506
 msgid ""
 "The maximum duration (in seconds) that this plugin's content should be "
 "cached."
@@ -605,4 +638,7 @@ msgid ""
 "Seems that EventsConfig for this page is missing. Tried to look for {0}. To "
 "be able to see calendar and events againg - you need to create or select "
 "another EventsConfig for this page."
-msgstr "Mogelijk ontbreekt de EventsConfig voor deze pagina. Geprobeerd om te zoeken naar {0}. Om de kalender en evementen te zien verouderen moet u een andere EventsConfig voor deze pagina aanmaken of aanpassen."
+msgstr ""
+"Mogelijk ontbreekt de EventsConfig voor deze pagina. Geprobeerd om te zoeken "
+"naar {0}. Om de kalender en evementen te zien verouderen moet u een andere "
+"EventsConfig voor deze pagina aanmaken of aanpassen."

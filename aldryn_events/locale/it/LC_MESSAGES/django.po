@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Aldryn Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-23 14:56-0400\n"
+"POT-Creation-Date: 2017-02-04 17:35+0100\n"
 "PO-Revision-Date: 2016-07-07 20:36+0000\n"
 "Last-Translator: Martin Koistinen <mkoistinen@gmail.com>\n"
-"Language-Team: Italian (http://www.transifex.com/divio/aldryn-events/language/it/)\n"
+"Language-Team: Italian (http://www.transifex.com/divio/aldryn-events/"
+"language/it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: admin.py:57
@@ -229,7 +230,7 @@ msgid "Ongoing events"
 msgstr ""
 
 #: boilerplates/legacy/templates/aldryn_events/events_list.html:9
-#: cms_apps.py:13 cms_plugins.py:109 cms_plugins.py:140 cms_plugins.py:169
+#: cms_apps.py:13 cms_plugins.py:109 cms_plugins.py:141 cms_plugins.py:170
 #: cms_toolbars.py:71 menu.py:20 models.py:183
 msgid "Events"
 msgstr ""
@@ -241,6 +242,7 @@ msgid "No events found."
 msgstr ""
 
 #: boilerplates/legacy/templates/aldryn_events/includes/event_registration.html:4
+#: models.py:397
 msgid "Registration"
 msgstr ""
 
@@ -280,11 +282,11 @@ msgstr ""
 msgid "Upcoming or Past Events"
 msgstr ""
 
-#: cms_plugins.py:141
+#: cms_plugins.py:142
 msgid "List"
 msgstr ""
 
-#: cms_plugins.py:168
+#: cms_plugins.py:169
 msgid "Calendar"
 msgstr ""
 
@@ -332,36 +334,36 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-#: forms.py:33
+#: forms.py:35
 msgid "Date:"
 msgstr ""
 
-#: forms.py:34
+#: forms.py:36
 msgid "Time:"
 msgstr ""
 
-#: forms.py:53
+#: forms.py:55
 #, python-format
 msgid "Acceptable Formats: %(format_list)s"
 msgstr ""
 
-#: forms.py:87
+#: forms.py:89
 msgid "the registration deadline for this event has already passed"
 msgstr ""
 
-#: forms.py:164
+#: forms.py:166
 msgid ""
-"Following app_configs is app hooked but pages are not published, to use them"
-" - publish pages to which they are attached."
+"Following app_configs is app hooked but pages are not published, to use them "
+"- publish pages to which they are attached."
 msgstr ""
 
-#: forms.py:193
+#: forms.py:195
 msgid ""
 "Seems that selected Event config is not plugged to any page, or maybe that "
 "page is not published.Please select Event config that is being used."
 msgstr ""
 
-#: forms.py:243
+#: forms.py:245
 msgid ""
 "When flagged will add an ongoing_objects to the context and exclude these "
 "objects from the normal list. If you are using the default template it's "
@@ -464,7 +466,7 @@ msgstr ""
 msgid "image"
 msgstr ""
 
-#: models.py:177 models.py:398
+#: models.py:177 models.py:402
 msgid "app_config"
 msgstr ""
 
@@ -478,8 +480,8 @@ msgstr ""
 
 #: models.py:221
 msgid ""
-"When specifying identical start and end dates, please also provide the start"
-" and end time."
+"When specifying identical start and end dates, please also provide the start "
+"and end time."
 msgstr ""
 
 #: models.py:228
@@ -488,8 +490,8 @@ msgstr ""
 
 #: models.py:233
 msgid ""
-"the registration system can't be active if there is an external registration"
-" link. please remove at least one of the two."
+"the registration system can't be active if there is an external registration "
+"link. please remove at least one of the two."
 msgstr ""
 
 #: models.py:239
@@ -564,35 +566,39 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: models.py:428 models.py:454
+#: models.py:398
+msgid "Registrations"
+msgstr ""
+
+#: models.py:432 models.py:458
 msgid "Standard"
 msgstr ""
 
-#: models.py:432 models.py:470
+#: models.py:436 models.py:474
 msgid "Style"
 msgstr ""
 
-#: models.py:457
+#: models.py:461
 msgid "future events"
 msgstr ""
 
-#: models.py:458
+#: models.py:462
 msgid "past events"
 msgstr ""
 
-#: models.py:465
+#: models.py:469
 msgid "selection"
 msgstr ""
 
-#: models.py:476
+#: models.py:480
 msgid "latest entries"
 msgstr ""
 
-#: models.py:478
+#: models.py:482
 msgid "The number of latest events to be displayed."
 msgstr ""
 
-#: models.py:485 models.py:502
+#: models.py:489 models.py:506
 msgid ""
 "The maximum duration (in seconds) that this plugin's content should be "
 "cached."
