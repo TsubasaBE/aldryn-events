@@ -126,7 +126,7 @@ class EventRegistrationForm(forms.ModelForm):
         model = Registration
         fields = (
             'salutation',
-            'company',
+            # 'company',
             'first_name',
             'last_name',
             'address',
