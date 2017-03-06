@@ -83,9 +83,9 @@ class EventRegistrationForm(forms.ModelForm):
         if 'message' in self.fields:
             self.fields['message'].widget = forms.Textarea(attrs={'rows': 5, 'class': 'cmnt-text'})
 
-        # Add "form-control" class to all widgets for bootstrap3 support
         for (fkey, f) in self.fields.items():
-            if "class" in self.fields[fkey].widget.attrs:
+            # Add "form-control" class to all widgets for bootstrap3 support
+            if "class" in f.widget.attrs:
                 self.fields[fkey].widget.attrs['class'] = self.fields[fkey].widget.attrs['class'] + " form-control"
             else:
                 self.fields[fkey].widget.attrs['class'] = " form-control"
