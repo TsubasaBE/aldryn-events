@@ -22,6 +22,8 @@ from django.utils import timezone
 from django.utils.encoding import force_text, python_2_unicode_compatible
 from django.utils.translation import override, ugettext_lazy as _, ugettext
 
+from django.core.validators import MinValueValidator, MaxValueValidator
+
 from cms.models import CMSPlugin
 from cms.models.fields import PlaceholderField
 from cms.utils.i18n import get_current_language, get_redirect_on_fallback
@@ -386,6 +388,8 @@ class Registration(models.Model):
         _('Mobile number'), blank=True, default='', max_length=20
     )
     email = models.EmailField(_('E-Mail'))
+
+    nr_of_persons = models.PositiveIntegerField(_('Nr. of persons'), validators=[MinValueValidator(1), MaxValueValidator(10)], blank=False, default=0)
 
     message = models.TextField(_('Message'), blank=True, default='')
 

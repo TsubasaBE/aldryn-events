@@ -142,6 +142,7 @@ class EventRegistrationForm(forms.ModelForm):
             'phone',
             'mobile',
             'email',
+            'nr_of_persons',
             'message'
         )
 
