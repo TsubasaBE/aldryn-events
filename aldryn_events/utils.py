@@ -108,7 +108,9 @@ def send_user_confirmation_email(registration, language):
     event = registration.event
     ctx = {
         'event_name': event.title,
+        'salutation': registration.salutation,
         'first_name': registration.first_name,
+        'last_name': registration.last_name,
         'event_url': u"http://%s%s" % (
             Site.objects.get_current(), event.get_absolute_url()
         ),
