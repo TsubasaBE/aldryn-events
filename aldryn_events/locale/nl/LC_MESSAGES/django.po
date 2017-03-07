@@ -255,7 +255,7 @@ msgstr "Inschrijving"
 
 #: boilerplates/legacy/templates/aldryn_events/plugins/upcoming/standard/upcoming.html:12
 msgid "Past events"
-msgstr "Evenementen uit het verleden"
+msgstr "Afgelopen evenementen"
 
 #: boilerplates/legacy/templates/aldryn_events/plugins/upcoming/standard/upcoming.html:12
 msgid "Upcoming events"
