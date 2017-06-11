@@ -34,6 +34,10 @@ from .utils import (
     build_events_by_year, get_event_q_filters, get_valid_languages
 )
 
+from .models import RegistrationParticipant
+from .forms import EventRegistrationParticipantForm
+from django.forms import modelformset_factory
+
 
 def get_language(request):
     lang = getattr(request, 'LANGUAGE_CODE', None)
@@ -152,6 +156,10 @@ class EventDetailView(AppConfigMixin, NavigationMixin, CreateView):
     template_name = 'aldryn_events/events_detail.html'
     form_class = EventRegistrationForm
 
+    nr_of_persons = 0
+    registration_participant_formset = None
+    is_form_submitted_valid = False
+
     def dispatch(self, request, *args, **kwargs):
         self.namespace, self.config = get_app_instance(request)
         self.request_language = get_language(request)
@@ -203,10 +211,17 @@ class EventDetailView(AppConfigMixin, NavigationMixin, CreateView):
         context['event'] = self.event
         context['already_registered'] = self.event.id in registered_events
         _prev, _next = self.get_neighbors_events()
+
+        context['nr_of_persons'] = self.nr_of_persons
+        context['registration_participant_formset'] = self.registration_participant_formset
+        context['showerrors'] = True
+        context["is_form_submitted_valid"] = self.is_form_submitted_valid
+
         context.update({'prev_event': _prev, 'next_event': _next})
         return context
 
     def form_valid(self, form):
+        self.is_form_submitted_valid = True
         registration = super(EventDetailView, self).form_valid(form)
         registered_events = set(
             self.request.session.get('registered_events', [])
@@ -215,6 +230,25 @@ class EventDetailView(AppConfigMixin, NavigationMixin, CreateView):
 
         # set's are not json serializable
         self.request.session['registered_events'] = list(registered_events)
+        return registration
+
+    def form_invalid(self, form):
+        nr_of_persons = self.request.POST['nr_of_persons']
+
+        self.nr_of_persons = nr_of_persons
+
+        EventRegistrationParticipantFormSet = modelformset_factory(RegistrationParticipant, form=EventRegistrationParticipantForm, extra=int(nr_of_persons))
+
+        if "form-TOTAL_FORMS" in self.request.POST:
+            self.request.POST._mutable = True   # request.POST is a QueryDict which is immutable by nature
+            self.request.POST["form-TOTAL_FORMS"] = nr_of_persons
+            registration_participant_formset = EventRegistrationParticipantFormSet(self.request.POST, queryset=RegistrationParticipant.objects.none())
+        else:
+            registration_participant_formset = EventRegistrationParticipantFormSet(queryset=RegistrationParticipant.objects.none())
+
+        self.registration_participant_formset = registration_participant_formset
+
+        registration = super(EventDetailView, self).form_invalid(form)
         return registration
 
     def get_success_url(self):
@@ -226,6 +260,7 @@ class EventDetailView(AppConfigMixin, NavigationMixin, CreateView):
         kwargs['language_code'] = (
             get_language_from_request(self.request, check_path=True)
         )
+        kwargs['request'] = self.request
         return kwargs
 
     def render_to_response(self, context, **response_kwargs):

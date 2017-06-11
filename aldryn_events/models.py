@@ -397,9 +397,29 @@ class Registration(models.Model):
     def address_street(self):
         return self.address
 
+    def __str__(self):
+        return "%s (%s)" % (self.event, self.email,)
+
     class Meta:
         verbose_name = _('Registration')
         verbose_name_plural = _('Registrations')
+
+
+# RegistrationParticipants
+class RegistrationParticipant(models.Model):
+    registration = models.ForeignKey(Registration, verbose_name=_("Event Registration"))
+    first_name = models.CharField(_('First name'), max_length=100, blank=False)
+    last_name = models.CharField(_('Last name'), max_length=100, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "%s %s (%s)" % (self.first_name, self.last_name, self.registration,)
+
+    class Meta:
+        verbose_name = _('Registration Participant')
+        verbose_name_plural = _('Registration Participants')
+
 
 
 class BaseEventPlugin(CMSPlugin):

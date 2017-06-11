@@ -20,11 +20,13 @@ from cms.models import Page
 from .models import (
     Registration, UpcomingPluginItem, Event, EventsConfig,
     EventListPlugin, EventCalendarPlugin,
+    RegistrationParticipant,
 )
 from .utils import (
     send_user_confirmation_email, send_manager_confirmation_email,
     is_valid_namespace,
 )
+from django.forms import modelformset_factory
 
 
 class CustomAdminSplitDateTime(AdminSplitDateTime):
@@ -71,10 +73,10 @@ class EventAdminForm(TranslatableModelForm):
 
 
 class EventRegistrationForm(forms.ModelForm):
-
     def __init__(self, *args, **kwargs):
         self.event = kwargs.pop('event')
         self.language_code = kwargs.pop('language_code')
+        self.request = kwargs.pop('request')
         super(EventRegistrationForm, self).__init__(*args, **kwargs)
 
         if 'address' in self.fields:
@@ -83,12 +85,16 @@ class EventRegistrationForm(forms.ModelForm):
         if 'message' in self.fields:
             self.fields['message'].widget = forms.Textarea(attrs={'rows': 5, 'class': 'cmnt-text'})
 
+        # Make the 'nr_of_persons' field a select field
+        self.fields['nr_of_persons'] = forms.TypedChoiceField(label=_('Nr. of persons'), initial=0, required=True, coerce=int, choices=((x,x) for x in range(0,11)))
+        self.fields['nr_of_persons'].widget.attrs['class'] = 'nr_of_persons'
+
         for (fkey, f) in self.fields.items():
             # Add "form-control" class to all widgets for bootstrap3 support
             if "class" in f.widget.attrs:
                 self.fields[fkey].widget.attrs['class'] = self.fields[fkey].widget.attrs['class'] + " form-control"
             else:
-                self.fields[fkey].widget.attrs['class'] = " form-control"
+                self.fields[fkey].widget.attrs['class'] = "form-control"
 
     def clean(self):
         if self.event.is_registration_deadline_passed:
@@ -96,6 +102,17 @@ class EventRegistrationForm(forms.ModelForm):
                 _('the registration deadline for this event has already '
                   'passed')
             )
+
+        # Event registration participants Validation
+        nr_of_persons = self.cleaned_data['nr_of_persons']
+        self.request.POST._mutable = True   # request.POST is a QueryDict which is immutable by nature
+        self.request.POST["form-TOTAL_FORMS"] = nr_of_persons
+        EventRegistrationParticipantFormSet = modelformset_factory(RegistrationParticipant, form=EventRegistrationParticipantForm, extra=nr_of_persons)
+        registration_participant_formset = EventRegistrationParticipantFormSet(self.request.POST, queryset=RegistrationParticipant.objects.none())
+        is_participants_form_valid = registration_participant_formset.is_valid()
+        if not is_participants_form_valid:
+            self.add_error('nr_of_persons', _("Correct participant information"))
+
         return self.cleaned_data
 
     def send_user_notification(self):
@@ -124,8 +141,18 @@ class EventRegistrationForm(forms.ModelForm):
         if commit:
             registration.save()
 
-        self.send_user_notification()
-        self.send_admin_notification()
+            # Save the participants
+            EventRegistrationParticipantFormSet = modelformset_factory(RegistrationParticipant, form=EventRegistrationParticipantForm, extra=int(self.request.POST['nr_of_persons']))
+            registration_participant_formset = EventRegistrationParticipantFormSet(self.request.POST, queryset=RegistrationParticipant.objects.none())
+            is_participants_form_valid = registration_participant_formset.is_valid()
+            if is_participants_form_valid:
+                for participant_form in registration_participant_formset:
+                    participant = participant_form.save(commit=False)
+                    participant.registration = registration
+                    participant.save()
+
+            self.send_user_notification()
+            self.send_admin_notification()
 
         return registration
 
@@ -145,6 +172,31 @@ class EventRegistrationForm(forms.ModelForm):
             'nr_of_persons',
             'message'
         )
+
+# Event Registration Participant form
+class EventRegistrationParticipantForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(EventRegistrationParticipantForm, self).__init__(*args, **kwargs)
+        self.empty_permitted = False
+
+        self.fields['first_name'].widget.attrs['placeholder'] = self.fields['first_name'].label
+        self.fields['last_name'].widget.attrs['placeholder'] = self.fields['last_name'].label
+
+        for (fkey, f) in self.fields.items():
+            # Add "form-control" class to all widgets for bootstrap3 support
+            if "class" in f.widget.attrs:
+                self.fields[fkey].widget.attrs['class'] = self.fields[fkey].widget.attrs['class'] + " form-control"
+            else:
+                self.fields[fkey].widget.attrs['class'] = "form-control"
+
+    class Meta:
+        model = Registration
+        fields = (
+            # 'registration',
+            'first_name',
+            'last_name',
+        )
+
 
 
 class AppConfigPluginFormMixin(object):
